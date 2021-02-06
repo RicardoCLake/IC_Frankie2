@@ -1,0 +1,16 @@
+ethernet
+
+bbone ping lake
+--- 169.254.177.77 ping statistics ---
+1348 packets transmitted, 1348 received, 0% packet loss, time 1378243ms
+rtt min/avg/max/mdev = 0.161/0.343/0.695/0.053 ms
+
+lake ping bbone
+--- 192.168.6.2 ping statistics ---
+1442 packets transmitted, 1442 received, 0% packet loss, time 1475414ms
+rtt min/avg/max/mdev = 0.231/0.503/0.797/0.051 ms
+
+bbone ping lake por bastante tempo
+--- 169.254.177.77 ping statistics ---
+5917 packets transmitted, 5917 received, 0% packet loss, time 6011835ms
+rtt min/avg/max/mdev = 0.186/0.468/0.916/0.160 ms

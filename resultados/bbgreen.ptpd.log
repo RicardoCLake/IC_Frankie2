@@ -1,0 +1,174 @@
+2020-11-10 03:58:33.258796 ptpd2[2494].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-10 03:58:33.259974 ptpd2[2494].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-10 03:58:33.260351 ptpd2[2494].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2494)
+2020-11-10 03:58:33.260505 ptpd2[2494].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-10 03:58:33.281331 ptpd2[2494].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2020-11-10 03:58:33.405838 ptpd2[2494].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-10 03:58:43.260990 ptpd2[2494].eth0 (notice)    (lstn_init) TimingService.PTP0: elected best TimingService
+2020-11-10 03:58:43.261342 ptpd2[2494].eth0 (info)      (lstn_init) TimingService.PTP0: acquired clock control
+2020-11-10 03:59:33.901910 ptpd2[2494].eth0 (warning)   (lstn_init) Still in LISTENING after 5 restarts - restarting transports
+2020-11-10 03:59:34.011320 ptpd2[2494].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-10 04:00:34.507455 ptpd2[2494].eth0 (warning)   (lstn_reset) Still in LISTENING after 5 restarts - restarting transports
+2020-11-10 04:00:34.657849 ptpd2[2494].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-10 04:01:23.148736 ptpd2[2494].eth0 (info)      (lstn_reset) New best master selected: 641c67fffe9298b4(unknown)/1
+2020-11-10 04:01:23.149237 ptpd2[2494].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 641c67fffe9298b4(unknown)/1 (IPv4:169.254.177.77)
+2020-11-10 04:01:24.145675 ptpd2[2494].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-10 04:01:24.146037 ptpd2[2494].eth0 (critical)  (slv) Offset above 1 second. Clock will step.
+2020-11-11 20:36:33.580159 ptpd2[2494].eth0 (warning)   (slv) Stepped the system clock to: 11/11/20 20:36:33.567835016
+2020-11-11 20:36:33.700339 ptpd2[2494].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-11 20:36:34.567391 ptpd2[2494].eth0 (info)      (lstn_reset) New best master selected: 641c67fffe9298b4(unknown)/1
+2020-11-11 20:36:34.567910 ptpd2[2494].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 641c67fffe9298b4(unknown)/1 (IPv4:169.254.177.77)
+2020-11-11 20:36:35.567272 ptpd2[2494].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-11 20:36:36.568372 ptpd2[2494].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-10 03:05:28.239814 ptpd2[2542].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-10 03:05:28.241880 ptpd2[2542].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-10 03:05:28.242671 ptpd2[2542].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2542)
+2020-11-10 03:05:28.242878 ptpd2[2542].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-10 03:05:28.244770 ptpd2[2542].eth0 (warning)   (init) Interface eth0 seems to be down. PTPd will not operate correctly until it's up.
+2020-11-10 03:05:28.260622 ptpd2[2542].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2020-11-10 03:05:28.378395 ptpd2[2542].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-10 03:05:38.243185 ptpd2[2542].eth0 (notice)    (lstn_init) TimingService.PTP0: elected best TimingService
+2020-11-10 03:05:38.243492 ptpd2[2542].eth0 (info)      (lstn_init) TimingService.PTP0: acquired clock control
+2020-11-10 03:06:22.419886 ptpd2[2542].eth0 (info)      (lstn_init) TimingService: Timing domain shutting down
+2020-11-10 03:06:22.420194 ptpd2[2542].eth0 (info)      (lstn_init) TimingService.PTP0: PTP service shutdown
+2020-11-10 03:06:27.822132 ptpd2[2554].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-10 03:06:27.823589 ptpd2[2554].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-10 03:06:27.824041 ptpd2[2554].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2554)
+2020-11-10 03:06:27.824190 ptpd2[2554].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-10 03:06:27.826144 ptpd2[2554].eth0 (warning)   (init) Interface eth0 seems to be down. PTPd will not operate correctly until it's up.
+2020-11-10 03:06:27.837779 ptpd2[2554].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2020-11-10 03:06:27.955327 ptpd2[2554].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-10 03:06:37.824775 ptpd2[2554].eth0 (notice)    (lstn_init) TimingService.PTP0: elected best TimingService
+2020-11-10 03:06:37.825114 ptpd2[2554].eth0 (info)      (lstn_init) TimingService.PTP0: acquired clock control
+2020-11-10 03:07:27.261853 ptpd2[2563].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-10 03:07:27.263330 ptpd2[2563].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-10 03:07:27.263715 ptpd2[2563].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2563)
+2020-11-10 03:07:27.263880 ptpd2[2563].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-10 03:07:27.265828 ptpd2[2563].eth0 (warning)   (init) Interface eth0 seems to be down. PTPd will not operate correctly until it's up.
+2020-11-10 03:07:27.277386 ptpd2[2563].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2020-11-10 03:07:27.395002 ptpd2[2563].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-10 03:07:37.264372 ptpd2[2563].eth0 (notice)    (lstn_init) TimingService.PTP0: elected best TimingService
+2020-11-10 03:07:37.264716 ptpd2[2563].eth0 (info)      (lstn_init) TimingService.PTP0: acquired clock control
+2020-11-10 02:28:30.120455 ptpd2[2466].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-10 02:28:30.122827 ptpd2[2466].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-10 02:28:30.123264 ptpd2[2466].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2466)
+2020-11-10 02:28:30.123413 ptpd2[2466].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-10 02:28:30.140217 ptpd2[2466].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2020-11-10 02:28:30.264264 ptpd2[2466].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-10 02:28:31.798237 ptpd2[2466].eth0 (info)      (lstn_init) New best master selected: 78a504fffefee9bd(unknown)/1
+2020-11-10 02:28:31.798770 ptpd2[2466].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1 (IPv4:192.168.5.38)
+2020-11-10 02:28:32.795170 ptpd2[2466].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-10 02:28:32.795532 ptpd2[2466].eth0 (critical)  (slv) Offset above 1 second. Clock will step.
+2020-11-23 17:33:50.146874 ptpd2[2466].eth0 (warning)   (slv) Stepped the system clock to: 11/23/20 17:33:50.146757453
+2020-11-23 17:33:50.377120 ptpd2[2466].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-23 17:33:51.146284 ptpd2[2466].eth0 (info)      (lstn_reset) New best master selected: 78a504fffefee9bd(unknown)/1
+2020-11-23 17:33:51.146658 ptpd2[2466].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1 (IPv4:192.168.5.38)
+2020-11-23 17:33:52.146190 ptpd2[2466].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-23 17:33:53.147630 ptpd2[2466].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-23 17:33:57.475005 ptpd2[2466].eth0 (notice)    (slv) TimingService.PTP0: elected best TimingService
+2020-11-23 17:33:57.475335 ptpd2[2466].eth0 (info)      (slv) TimingService.PTP0: acquired clock control
+2020-11-23 17:43:29.146689 ptpd2[2466].eth0 (warning)   (slv) No active masters present. Resetting port.
+2020-11-23 17:43:29.157627 ptpd2[2466].eth0 (error)     (slv) error while setting outgoig multicast interface (IP_MULTICAST_IF)      (strerror: Cannot assign requested address)
+2020-11-23 17:43:29.157913 ptpd2[2466].eth0 (warning)   (slv) Error while refreshing multicast - restarting transports
+2020-11-23 17:43:29.159893 ptpd2[2466].eth0 (error)     (init) Interface eth0 has no IPv4 address set
+2020-11-23 17:43:29.160091 ptpd2[2466].eth0 (error)     (init) Failed to initialize network
+2020-11-23 17:43:29.160172 ptpd2[2466].eth0 (error)     (flt) PTPd init failed - will retry in 10 seconds
+2020-11-23 17:43:39.400895 ptpd2[2466].eth0 (error)     (init) Interface eth0 has no IPv4 address set
+2020-11-23 17:43:39.401190 ptpd2[2466].eth0 (error)     (init) Failed to initialize network
+2020-11-23 17:43:39.401275 ptpd2[2466].eth0 (error)     (flt) PTPd init failed - will retry in 10 seconds
+2020-11-23 17:43:49.631310 ptpd2[2466].eth0 (error)     (init) Interface eth0 has no IPv4 address set
+2020-11-23 17:43:49.631625 ptpd2[2466].eth0 (error)     (init) Failed to initialize network
+2020-11-23 17:43:49.631715 ptpd2[2466].eth0 (error)     (flt) PTPd init failed - will retry in 10 seconds
+2020-11-23 17:43:59.847976 ptpd2[2466].eth0 (error)     (init) Interface eth0 has no IPv4 address set
+2020-11-23 17:43:59.854305 ptpd2[2466].eth0 (error)     (init) Failed to initialize network
+2020-11-23 17:43:59.854533 ptpd2[2466].eth0 (error)     (flt) PTPd init failed - will retry in 10 seconds
+2020-11-23 17:44:10.071596 ptpd2[2466].eth0 (warning)   (init) Interface eth0 seems to be down. PTPd will not operate correctly until it's up.
+2020-11-23 17:44:10.174226 ptpd2[2466].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-23 17:45:10.576036 ptpd2[2466].eth0 (warning)   (lstn_reset) Still in LISTENING after 5 restarts - restarting transports
+2020-11-23 17:45:10.578412 ptpd2[2466].eth0 (warning)   (init) Interface eth0 seems to be down. PTPd will not operate correctly until it's up.
+2020-11-23 17:45:10.680545 ptpd2[2466].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-23 17:45:53.151692 ptpd2[2466].eth0 (info)      (lstn_reset) New best master selected: 78a504fffefee9bd(unknown)/1
+2020-11-23 17:45:53.152099 ptpd2[2466].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1 (IPv4:192.168.5.38)
+2020-11-23 17:45:54.151461 ptpd2[2466].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-23 17:45:55.152931 ptpd2[2466].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-23 17:47:37.146932 ptpd2[2466].eth0 (warning)   (slv) No active masters present. Resetting port.
+2020-11-23 17:47:37.247830 ptpd2[2466].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-23 17:47:51.164981 ptpd2[2466].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1
+2020-11-23 17:47:52.164769 ptpd2[2466].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-23 17:47:53.166333 ptpd2[2466].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-23 17:49:21.668367 ptpd2[2767].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-23 17:49:21.669935 ptpd2[2767].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-23 17:49:21.670450 ptpd2[2767].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2767)
+2020-11-23 17:49:21.670606 ptpd2[2767].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-23 17:49:21.674785 ptpd2[2767].eth0 (info)      (init) Observed_drift loaded from kernel: 45937 ppb
+2020-11-23 17:49:21.775751 ptpd2[2767].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-23 17:49:23.167389 ptpd2[2767].eth0 (info)      (lstn_init) New best master selected: 78a504fffefee9bd(unknown)/1
+2020-11-23 17:49:23.167702 ptpd2[2767].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1 (IPv4:192.168.5.38)
+2020-11-23 17:49:24.164819 ptpd2[2767].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-23 17:49:25.166343 ptpd2[2767].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-23 17:49:31.671088 ptpd2[2767].eth0 (notice)    (slv) TimingService.PTP0: elected best TimingService
+2020-11-23 17:49:31.671423 ptpd2[2767].eth0 (info) 2020-11-10 08:00:28.006504 ptpd2[3011].startup (info)      (___)   Info:    Now running as a daemon
+2020-11-10 08:00:28.007862 ptpd2[3011].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2020-11-10 08:00:28.008239 ptpd2[3011].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 3011)
+2020-11-10 08:00:28.008380 ptpd2[3011].startup (info)      (___) TimingService.PTP0: PTP service init
+2020-11-10 08:00:28.033628 ptpd2[3011].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2020-11-10 08:00:28.157844 ptpd2[3011].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2020-11-10 08:00:35.177769 ptpd2[3011].eth0 (info)      (lstn_init) New best master selected: 78a504fffefee9bd(unknown)/1
+2020-11-10 08:00:35.178116 ptpd2[3011].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1 (IPv4:192.168.5.38)
+2020-11-10 08:00:36.174687 ptpd2[3011].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-10 08:00:36.175056 ptpd2[3011].eth0 (critical)  (slv) Offset above 1 second. Clock will step.
+2020-11-23 22:36:49.640369 ptpd2[3011].eth0 (warning)   (slv) Stepped the system clock to: 11/23/20 22:36:49.631245703
+2020-11-23 22:36:49.859074 ptpd2[3011].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-23 22:36:50.630965 ptpd2[3011].eth0 (info)      (lstn_reset) New best master selected: 78a504fffefee9bd(unknown)/1
+2020-11-23 22:36:50.631332 ptpd2[3011].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1 (IPv4:192.168.5.38)
+2020-11-23 22:36:51.464797 ptpd2[3011].eth0 (notice)    (slv) TimingService.PTP0: elected best TimingService
+2020-11-23 22:36:51.465125 ptpd2[3011].eth0 (info)      (slv) TimingService.PTP0: acquired clock control
+2020-11-23 22:36:51.630776 ptpd2[3011].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-23 22:36:52.632166 ptpd2[3011].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-23 22:45:20.631394 ptpd2[3011].eth0 (warning)   (slv) No active masters present. Resetting port.
+2020-11-23 22:45:20.755398 ptpd2[3011].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-11-23 22:45:44.171361 ptpd2[3011].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 78a504fffefee9bd(unknown)/1
+2020-11-23 22:45:45.171168 ptpd2[3011].eth0 (notice)    (slv) Received first Sync from Master
+2020-11-23 22:45:46.172582 ptpd2[3011].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-11-23 22:46:37.496497 ptpd2[3011].eth0 (info)      (slv) TimingService: Timing domain shutting down
+2020-11-23 22:46:37.496812 ptpd2[3011].eth0 (info)      (slv) TimingService.PTP0: PTP service shutdown
+2000-01-01 00:05:34.183924 ptpd2[2454].startup (info)      (___)   Info:    Now running as a daemon
+2000-01-01 00:05:34.186058 ptpd2[2454].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2000-01-01 00:05:34.186477 ptpd2[2454].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2454)
+2000-01-01 00:05:34.187055 ptpd2[2454].startup (info)      (___) TimingService.PTP0: PTP service init
+2000-01-01 00:05:34.206478 ptpd2[2454].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2000-01-01 00:05:34.330834 ptpd2[2454].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2000-01-01 00:05:34.945786 ptpd2[2454].eth0 (info)      (lstn_init) New best master selected: 641c67fffe9298b4(unknown)/1
+2000-01-01 00:05:34.946103 ptpd2[2454].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 641c67fffe9298b4(unknown)/1 (IPv4:192.168.5.9)
+2000-01-01 00:05:35.942557 ptpd2[2454].eth0 (notice)    (slv) Received first Sync from Master
+2000-01-01 00:05:35.943000 ptpd2[2454].eth0 (critical)  (slv) Offset above 1 second. Clock will step.
+2020-12-15 14:10:55.397691 ptpd2[2454].eth0 (warning)   (slv) Stepped the system clock to: 12/15/20 14:10:55.383304136
+2020-12-15 14:10:55.561993 ptpd2[2454].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-12-15 14:10:56.382982 ptpd2[2454].eth0 (info)      (lstn_reset) New best master selected: 641c67fffe9298b4(unknown)/1
+2020-12-15 14:10:56.383427 ptpd2[2454].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 641c67fffe9298b4(unknown)/1 (IPv4:192.168.5.9)
+2020-12-15 14:10:57.382307 ptpd2[2454].eth0 (notice)    (slv) Received first Sync from Master
+2020-12-15 14:10:58.384359 ptpd2[2454].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-12-15 14:11:03.627799 ptpd2[2454].eth0 (notice)    (slv) TimingService.PTP0: elected best TimingService
+2020-12-15 14:11:03.628118 ptpd2[2454].eth0 (info)      (slv) TimingService.PTP0: acquired clock control
+2020-12-15 14:11:51.517990 ptpd2[2454].eth0 (info)      (slv) TimingService: Timing domain shutting down
+2020-12-15 14:11:51.518289 ptpd2[2454].eth0 (info)      (slv) TimingService.PTP0: PTP service shutdown
+2000-01-01 00:19:29.366247 ptpd2[2651].startup (info)      (___)   Info:    Now running as a daemon
+2000-01-01 00:19:29.370893 ptpd2[2651].startup (info)      (___) Successfully acquired lock on /var/run/ptpd2.lock
+2000-01-01 00:19:29.371347 ptpd2[2651].startup (notice)    (___) PTPDv2 started successfully on eth0 using "slaveonly" preset (PID 2651)
+2000-01-01 00:19:29.371500 ptpd2[2651].startup (info)      (___) TimingService.PTP0: PTP service init
+2000-01-01 00:19:29.394435 ptpd2[2651].eth0 (info)      (init) Observed_drift loaded from kernel: 0 ppb
+2000-01-01 00:19:29.518625 ptpd2[2651].eth0 (notice)    (lstn_init) Now in state: PTP_LISTENING
+2000-01-01 00:19:29.748633 ptpd2[2651].eth0 (info)      (lstn_init) New best master selected: 641c67fffe9298b4(unknown)/1
+2000-01-01 00:19:29.749794 ptpd2[2651].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 641c67fffe9298b4(unknown)/1 (IPv4:192.168.5.9)
+2000-01-01 00:19:30.748165 ptpd2[2651].eth0 (notice)    (slv) Received first Sync from Master
+2000-01-01 00:19:30.748690 ptpd2[2651].eth0 (critical)  (slv) Offset above 1 second. Clock will step.
+2020-12-15 15:00:58.195493 ptpd2[2651].eth0 (warning)   (slv) Stepped the system clock to: 12/15/20 15:00:58.178630877
+2020-12-15 15:00:58.359094 ptpd2[2651].eth0 (notice)    (lstn_reset) Now in state: PTP_LISTENING
+2020-12-15 15:00:59.177991 ptpd2[2651].eth0 (info)      (lstn_reset) New best master selected: 641c67fffe9298b4(unknown)/1
+2020-12-15 15:00:59.178304 ptpd2[2651].eth0 (notice)    (slv) Now in state: PTP_SLAVE, Best master: 641c67fffe9298b4(unknown)/1 (IPv4:192.168.5.9)
+2020-12-15 15:01:00.178087 ptpd2[2651].eth0 (notice)    (slv) Received first Sync from Master
+2020-12-15 15:01:01.180653 ptpd2[2651].eth0 (notice)    (slv) Received first Delay Response from Master
+2020-12-15 15:01:06.801509 ptpd2[2651].eth0 (notice)    (slv) TimingService.PTP0: elected best TimingService
+2020-12-15 15:01:06.801828 ptpd2[2651].eth0 (info)      (slv) TimingService.PTP0: acquired clock control
+2020-12-15 15:02:23.881536 ptpd2[2651].eth0 (info)      (slv) TimingService: Timing domain shutting down
+2020-12-15 15:02:23.881837 ptpd2[2651].eth0 (info)      (slv) TimingService.PTP0: PTP service shutdown

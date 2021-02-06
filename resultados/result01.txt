@@ -1,0 +1,122 @@
+usando o settimer, 
+erro inicial eh o tempo que demorar para chamar a ação
+delay meu eh o tempo q eu estava gastando dentro da minha ação
+
+
+
+void action(int trash) 
+{   
+    gettimeofday(&time1, NULL);   //######################
+    Command comm = cq->getNext();  //######################
+    procedure(comm.eletrodo1);
+    cq->processNext();
+    gettimeofday(&time2, NULL);   //######################
+    cout << "\tHorario inicial: "<< time1.tv_sec << "." << time1.tv_usec << endl;   //######################
+    cout << "\tHorario final: "<< time1.tv_sec << "." << time1.tv_usec << endl;   //######################
+    cout << "\tHorario marcado: "<< comm.time.tv_sec << "." << comm.time.tv_usec << endl; //################
+    cout << "\tErro inicial: " << 1000000*(comm.time.tv_sec - time1.tv_sec) + comm.time.tv_usec - time1.tv_usec << endl; //######################
+    cout << "\tDelay meu: " << 1000000*(time2.tv_sec - time1.tv_sec) + time2.tv_usec - time1.tv_usec << endl; //######################
+}
+
+
+
+
+debian@beaglebone:~/Codigos/bb_rick$ g++ *.h *.cpp && sudo ./a.out
+Mapping 4804C000 - 481AFFFF (size: 163FFF)
+Horario: 1604997839.765939
+Adicionado o eletrodo 1
+Adicionado o eletrodo 2
+Adicionado o eletrodo 3
+Adicionado o eletrodo 1
+Adicionado o eletrodo 2
+Adicionado o eletrodo 3
+Adicionado o eletrodo 1
+Adicionado o eletrodo 2
+Adicionado o eletrodo 3
+Adicionado o eletrodo 1
+Adicionado o eletrodo 2
+Adicionado o eletrodo 3
+	Ativado o eletrodo 1
+Processado o proximo da fila (com eletrodo 2)
+	Horario inicial: 1604997839.771912
+	Horario final: 1604997839.771912
+	Horario marcado: 1604997843.765939
+	Erro inicial: 3994027
+	Delay meu: 289
+	Ativado o eletrodo 2
+Processado o proximo da fila (com eletrodo 3)
+	Horario inicial: 1604997847.766237
+	Horario final: 1604997847.766237
+	Horario marcado: 1604997847.765939
+	Erro inicial: -298
+	Delay meu: 286
+	Ativado o eletrodo 3
+Processado o proximo da fila (com eletrodo 1)
+	Horario inicial: 1604997851.766277
+	Horario final: 1604997851.766277
+	Horario marcado: 1604997851.765939
+	Erro inicial: -338
+	Delay meu: 228
+	Ativado o eletrodo 1
+Processado o proximo da fila (com eletrodo 2)
+	Horario inicial: 1604997855.766295
+	Horario final: 1604997855.766295
+	Horario marcado: 1604997855.765939
+	Erro inicial: -356
+	Delay meu: 219
+	Ativado o eletrodo 2
+Processado o proximo da fila (com eletrodo 3)
+	Horario inicial: 1604997859.766274
+	Horario final: 1604997859.766274
+	Horario marcado: 1604997859.765939
+	Erro inicial: -335
+	Delay meu: 224
+	Ativado o eletrodo 3
+Processado o proximo da fila (com eletrodo 1)
+	Horario inicial: 1604997863.766246
+	Horario final: 1604997863.766246
+	Horario marcado: 1604997863.765939
+	Erro inicial: -307
+	Delay meu: 232
+	Ativado o eletrodo 1
+Processado o proximo da fila (com eletrodo 2)
+	Horario inicial: 1604997867.766272
+	Horario final: 1604997867.766272
+	Horario marcado: 1604997867.765939
+	Erro inicial: -333
+	Delay meu: 225
+	Ativado o eletrodo 2
+Processado o proximo da fila (com eletrodo 3)
+	Horario inicial: 1604997871.766275
+	Horario final: 1604997871.766275
+	Horario marcado: 1604997871.765939
+	Erro inicial: -336
+	Delay meu: 230
+	Ativado o eletrodo 3
+Processado o proximo da fila (com eletrodo 1)
+	Horario inicial: 1604997875.766306
+	Horario final: 1604997875.766306
+	Horario marcado: 1604997875.765939
+	Erro inicial: -367
+	Delay meu: 225
+	Ativado o eletrodo 1
+Processado o proximo da fila (com eletrodo 2)
+	Horario inicial: 1604997879.766230
+	Horario final: 1604997879.766230
+	Horario marcado: 1604997879.765939
+	Erro inicial: -291
+	Delay meu: 276
+	Ativado o eletrodo 2
+Processado o proximo da fila (com eletrodo 3)
+	Horario inicial: 1604997883.766275
+	Horario final: 1604997883.766275
+	Horario marcado: 1604997883.765939
+	Erro inicial: -336
+	Delay meu: 236
+	Ativado o eletrodo 3
+	Horario inicial: 1604997887.766273
+	Horario final: 1604997887.766273
+	Horario marcado: 1604997887.765939
+	Erro inicial: -334
+	Delay meu: 196
+^C

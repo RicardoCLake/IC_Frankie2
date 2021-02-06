@@ -1,0 +1,40 @@
+BBONE green
+
+alterei /etc/resolv.conf
+
+alterei /etc/network/interfaces
+-> A bbgreen se forçava a dar um ip (forçado porém aleatório) para ela no eth0,
+com mascara 255.255.0.0 (o que era um saco para dar nmap, diga-se de passagem).
+
+Para conectar no par trançado, eu configurei o meu computador 
+para seguir a regra da bbone e fixei um ip para mim dentro da mascara dela.
+
+Porem, ao conectar no roteador, as mascaras não batiam, e a bbone se fixava 
+em um ip q o roteador n aceitava. Assim, tanto nas configuraçoes do roteador, 
+quanto no /etc/network/interfaces eu dei o mesmo ip estatico para a bbone no eth0, 
+para ela seguir o roteador.
+
+Assim consegui conectar a internet e usar o apt.
+Obs, quando uso par trancado com o meu computador, 
+ainda tenho que dancar conforme a musica da bbogreen com a mascara grande e talz muitas vezes,
+mas normalemnte, se eu reinicio o servico "networking", o interfaces é levado à sério.
+Isso em momento algum aconteceu com a bbblack. Eu ainda n descobri que programa da bbgreen q
+está dando um ip aleatório, e que está se sobrepondo ao interfaces ao dar boot.
+
+instalei ptpd e locate (ja tava instalado o htop, e acho q fui eu no passado pelo wifi)
+intalei também os três na bbblack
+
+
+
+
+
+BBONE BLACK
+
+mexi um pouquinho no /etc/network/interfaces
+
+fixei ip no roteador (no interfaces deixei automático por enquanto,
+mas mudarei para par trançado com a bbone green)
+
+arrumei o locale:
+sudo locale-gen en_US en_US.UTF-8 pt_BR.UTF-8
+sudo dpkg-reconfigure locales

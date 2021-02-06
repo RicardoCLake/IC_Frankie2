@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1612540057 source:/home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/CommandsQueue.cpp
+	"CommandsQueue.h"
+
+1612539755 /home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/CommandsQueue.h
+	<iostream>
+	<time.h>
+	<list>
+	<signal.h>
+	<sys/time.h>
+	<mutex>
+	<condition_variable>
+	"Gpio.h"
+
+1611322085 /home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/Gpio.h
+	<iostream>
+	<fcntl.h>
+	<sys/mman.h>
+	"gpio_map.h"
+
+1609291379 /home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/gpio_map.h
+
+1611315336 source:/home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/Gpio.cpp
+	"Gpio.h"
+
+1612551655 source:/home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/main.cpp
+	"header.h"
+	"mainReceiver.cpp"
+	"mainGPIO.cpp"
+
+1612552486 /home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/header.h
+	<iostream>
+	<unistd.h>
+	<thread>
+	<chrono>
+	<stdexcept>
+	"CommandsQueue.h"
+	"Gpio.h"
+
+1611279237 /home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/mainReceiver.cpp
+	"header.h"
+
+1612551732 /home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/mainGPIO.cpp
+	"header.h"
+
+1612551732 source:/home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/mainGPIO.cpp
+	"header.h"
+
+1611279237 source:/home/rifi/Dropbox/IniciacaoCientifica/Codigos/bb_rick/mainReceiver.cpp
+	"header.h"
+

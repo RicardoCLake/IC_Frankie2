@@ -1,0 +1,8 @@
+executar a função quando der um intervalo de tempo
+https://linux.die.net/man/3/snmp_alarm
+(no fim nao usei pq precisaria intalar biblioteca e talz)
+
+https://linux.die.net/man/2/setitimer
+https://linux.die.net/man/3/ualarm
+
+

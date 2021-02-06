@@ -1,0 +1,8 @@
+No servidor:
+
+em etc/services colocar:
+
+ic              60/tcp                          # Ricardo's Iniciacao Cientifica
+ic              60/udp              
+
+Permitir no firewall a entrada na porta 60

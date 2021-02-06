@@ -1,0 +1,70 @@
+essa é uma observação sobre o b:
+
+não é singularidade desse teste, mas é notavel a densidade de pings maiores nos iniciais
+
+nesse caso estou selecionando os 60 primeiros pois foi onde notei esse problema
+
+
+
+Defined the server address: 169.254.27.21/7000
+Yeah man, your conection was accepted by the server!
+1 _ time2 - time1:  808 microseconds
+2 _ time2 - time1:  293 microseconds
+3 _ time2 - time1:  856 microseconds
+4 _ time2 - time1:  278 microseconds
+5 _ time2 - time1:  838 microseconds
+6 _ time2 - time1:  265 microseconds
+7 _ time2 - time1:  883 microseconds
+8 _ time2 - time1: 1078 microseconds
+9 _ time2 - time1:  934 microseconds
+10 _ time2 - time1:  938 microseconds
+11 _ time2 - time1:  908 microseconds
+12 _ time2 - time1:  988 microseconds
+13 _ time2 - time1:  959 microseconds
+14 _ time2 - time1:  950 microseconds
+15 _ time2 - time1:  337 microseconds
+16 _ time2 - time1:  326 microseconds
+17 _ time2 - time1:  333 microseconds
+18 _ time2 - time1:  335 microseconds
+19 _ time2 - time1:  791 microseconds
+20 _ time2 - time1:  871 microseconds
+21 _ time2 - time1:  912 microseconds
+22 _ time2 - time1:  880 microseconds
+23 _ time2 - time1:  897 microseconds
+24 _ time2 - time1:  816 microseconds
+25 _ time2 - time1:  321 microseconds
+26 _ time2 - time1:  233 microseconds
+27 _ time2 - time1:  262 microseconds
+28 _ time2 - time1:  311 microseconds
+29 _ time2 - time1:  327 microseconds
+30 _ time2 - time1:  319 microseconds
+31 _ time2 - time1:  269 microseconds
+32 _ time2 - time1:  255 microseconds
+33 _ time2 - time1:  828 microseconds
+34 _ time2 - time1:  866 microseconds
+35 _ time2 - time1:  918 microseconds
+36 _ time2 - time1:  260 microseconds
+37 _ time2 - time1:  262 microseconds
+38 _ time2 - time1:  286 microseconds
+39 _ time2 - time1:  262 microseconds
+40 _ time2 - time1:  298 microseconds
+41 _ time2 - time1:  252 microseconds
+42 _ time2 - time1:  228 microseconds
+43 _ time2 - time1:  252 microseconds
+44 _ time2 - time1:  865 microseconds
+45 _ time2 - time1:  886 microseconds
+46 _ time2 - time1:  946 microseconds
+47 _ time2 - time1:  282 microseconds
+48 _ time2 - time1:  877 microseconds
+49 _ time2 - time1:  883 microseconds
+50 _ time2 - time1:  846 microseconds
+51 _ time2 - time1:  279 microseconds
+52 _ time2 - time1:  830 microseconds
+53 _ time2 - time1:  879 microseconds
+54 _ time2 - time1:  896 microseconds
+55 _ time2 - time1:  855 microseconds
+56 _ time2 - time1:  352 microseconds
+57 _ time2 - time1:  295 microseconds
+58 _ time2 - time1:  336 microseconds
+59 _ time2 - time1:  285 microseconds
+60 _ time2 - time1:  282 microseconds

@@ -1,0 +1,9 @@
+# Timestamp, State, Clock ID, One Way Delay, Offset From Master, Slave to Master, Master to Slave, Observed Drift, Last packet Received, One Way Delay Mean, One Way Delay Std Dev, Offset From Master Mean, Offset From Master Std Dev, Observed Drift Mean, Observed Drift Std Dev, raw delayMS, raw delaySM
+2020-12-15 11:10:00.269612, init, 
+2020-12-15 11:10:00.381655, lstn_init,  1 
+2020-12-15 11:10:12.381831, mst, 641c67fffe9298b4(unknown)/1
+2020-12-15 11:12:46.388594, dsbl, 
+# Timestamp, State, Clock ID, One Way Delay, Offset From Master, Slave to Master, Master to Slave, Observed Drift, Last packet Received, One Way Delay Mean, One Way Delay Std Dev, Offset From Master Mean, Offset From Master Std Dev, Observed Drift Mean, Observed Drift Std Dev, raw delayMS, raw delaySM
+2020-12-15 11:59:17.075243, init, 
+2020-12-15 11:59:17.176722, lstn_init,  1 
+2020-12-15 11:59:29.177410, mst, 641c67fffe9298b4(unknown)/1

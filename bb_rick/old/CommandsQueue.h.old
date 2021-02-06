@@ -1,0 +1,39 @@
+#ifndef COMMANDSQUEUE_H
+#define COMMANDSQUEUE_H
+
+#include <iostream>
+#include <time.h>
+#include <list>
+#include <signal.h>
+#include <sys/time.h>
+
+#include "Gpio.h"
+
+using namespace std;
+
+struct Command
+{
+    timeval time;
+    int eletrodo1;
+    
+};
+
+class CommandsQueue
+{
+    private:
+        list<Command> *queue;
+        int numberOfCommands;
+        
+
+    public:
+        CommandsQueue();
+        ~CommandsQueue();
+        Command getNext();
+        void processNext();
+        void addCommand(Command a);
+        int getNumberOfCommands();
+
+};
+
+
+#endif //COMMANDSQUEUE_H
