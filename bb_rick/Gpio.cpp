@@ -7,6 +7,7 @@ Gpio::Gpio(volatile unsigned int offset)
     gpioOeAddr = (volatile unsigned int*)gpioAddr + offset / sizeof(unsigned int) + GPIO_OE / sizeof(unsigned int);
     gpioSetdataoutAddr = (volatile unsigned int*)gpioAddr + offset / sizeof(unsigned int) + GPIO_SETDATAOUT / sizeof(unsigned int);
     gpioCleardataoutAddr = (volatile unsigned int*)gpioAddr + offset / sizeof(unsigned int) + GPIO_CLEARDATAOUT / sizeof(unsigned int);
+    gpioDatainAddr = (volatile unsigned int*)gpioAddr + offset / sizeof(unsigned int) + GPIO_DATAIN / sizeof(unsigned int);
 }
 
 Gpio::~Gpio()
@@ -19,6 +20,11 @@ void Gpio::setOE (unsigned int ports)
     reg = *gpioOeAddr;
     reg = reg & (0xFFFFFFFF - ports);
     *gpioOeAddr = reg;
+}
+
+int Gpio::readDataIn (int gpioNumber)
+{
+    return (*gpioDatainAddr >> gpioNumber) % 2;
 }
 
 void Gpio::setDataOut (unsigned int ports)
