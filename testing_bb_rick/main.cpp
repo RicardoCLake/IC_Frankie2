@@ -8,8 +8,8 @@ int main(int argc, char const *argv[])
     }
 
     Gpio* gpio1 = new Gpio(GPIO1_OFFSET);
-    Gpio* gpio2 = new Gpio(GPIO2_OFFSET);
-    Gpio* gpio3 = new Gpio(GPIO3_OFFSET);
+    //Gpio* gpio2 = new Gpio(GPIO2_OFFSET);
+    //Gpio* gpio3 = new Gpio(GPIO3_OFFSET);
 
     cout << "[M_gpio] Gpios created" << endl;
 
@@ -26,7 +26,42 @@ int main(int argc, char const *argv[])
         M B2  61                    gpio_1 - 29  
     */
 
-   
+    struct timeval vector0[10], vector1[10];
+    struct timeval time0, time1;
+    int i = 0;
+    while (i < TIMES)
+    {
+        if (!gpio1->readDataIn(17)) {
+            gettimeofday(&time0, NULL);
+            vector0[i] = time0;
+            while (gpio1->readDataIn(17)) usleep(1);
+            gettimeofday(&time1, NULL);
+            vector1[i] = time1;
+            i++;
+        }
+    }
+
+    cout << "Intervalos:" << endl;
+    unsigned long sumInterval = 0;
+    unsigned long interval = 0;
+    for (int j = 0; j < TIMES - 1; j++)
+    {
+        interval = 1000000 * vector0[j + 1].tv_sec + vector0[j + 1].tv_usec - 1000000 * vector0[j].tv_sec + vector0[j].tv_usec;
+        sumInterval += interval;
+        cout << interval << endl;
+    }
+    cout << "A media dos intervalos foi " << sumInterval / (TIMES - 1) << endl;
+
+    cout << "Duracoes:" << endl;
+    unsigned long sumDuration = 0;
+    unsigned long duration = 0;
+    for (int j = 0; j < TIMES; j++)
+    {
+        duration = 1000000 * vector1[j].tv_sec + vector1[j].tv_usec - 1000000 * vector0[j].tv_sec + vector0[j].tv_usec;
+        sumDuration += duration;
+        cout << duration << endl;
+    }
+    cout << "A media das duracoes foi " << sumDuration / (TIMES) << endl;
     
     return 0;
 }

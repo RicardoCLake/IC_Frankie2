@@ -3,7 +3,7 @@
 
 //********************************  INCLUDES  ********************************************
 #include <iostream>
-//#include <time.h>
+#include <sys/time.h>
 #include <unistd.h>
 #include <chrono>
 #include <stdexcept>
@@ -12,6 +12,7 @@
 //*******************************  DEFINITIONS  *******************************************
 #define GPIO1_BITS 0b00000000000011111111000011111111
 #define GPIO2_BITS 0b00000000000000011111111111111110
+#define TIMES 10
 
 using namespace std;
 
