@@ -26,6 +26,8 @@ int main(int argc, char const *argv[])
         M B2  61                    gpio_1 - 29  
     */
 
+    gpio1->setOE(0b00000000000000000000000000000000);
+
     struct timeval vector0[10], vector1[10];
     struct timeval time0, time1;
     int i = 0;
