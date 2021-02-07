@@ -19,7 +19,7 @@ void mainReceiver (CommandsQueue* cq)
     comTmp2.offset = 3;
     comTmp2.qtyCycles = 64;
     comTmp2.qtyElectrodes = 32;
-    comTmp2.durationCycle = 900000;
+    comTmp2.durationCycle = 100000;
     time0.tv_sec += 14;
     comTmp2.time = time0;
     
