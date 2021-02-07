@@ -4,7 +4,7 @@ int main(int argc, char const *argv[])
 {
     if (!Gpio::gpioMap())
     {
-        return;
+        return 0;
     }
 
     Gpio* gpio1 = new Gpio(GPIO1_OFFSET);
