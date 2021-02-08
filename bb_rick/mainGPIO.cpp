@@ -81,7 +81,7 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
         }
         else
         {
-            gpio1->setDataOut(1 << 29);  //B2
+            gpio1->setDataOut(1 << 19);  //A2
         }
     }
 }

@@ -32,6 +32,7 @@ int main(int argc, char const *argv[])
     gpio1->setOE(0b00000000000000000000000000000000);
 
     //firstOption(gpio1);
+    secondOption(gpio1);
     
     
     return 0;
@@ -79,11 +80,11 @@ void firstOption (Gpio* gpio1)
 
 void secondOption (Gpio* gpio1)
 {
-    while (0)
+    while (1)
     {
         cout << "DataIn of GPIO_1 17: " << gpio1->readDataIn(17) << endl;
         usleep (1000);
-        system("Clear");
+        system("clear");
     }
 }
 
