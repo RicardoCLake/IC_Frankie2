@@ -1,5 +1,8 @@
 #include "header.h"
 
+void firstOption (Gpio* gpio1);
+void secondOption (Gpio* gpio1);
+
 int main(int argc, char const *argv[])
 {
     if (!Gpio::gpioMap())
@@ -28,6 +31,14 @@ int main(int argc, char const *argv[])
 
     gpio1->setOE(0b00000000000000000000000000000000);
 
+    //firstOption(gpio1);
+    
+    
+    return 0;
+}
+
+void firstOption (Gpio* gpio1)
+{
     struct timeval vector0[10], vector1[10];
     struct timeval time0, time1;
     int i = 0;
@@ -64,8 +75,16 @@ int main(int argc, char const *argv[])
         cout << duration << endl;
     }
     cout << "A media das duracoes foi " << sumDuration / (TIMES) << endl;
-    
-    return 0;
+}
+
+void secondOption (Gpio* gpio1)
+{
+    while (0)
+    {
+        cout << "DataIn of GPIO_1 17: " << gpio1->readDataIn(17) << endl;
+        usleep (1000);
+        system("Clear");
+    }
 }
 
 
