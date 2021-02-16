@@ -3,6 +3,7 @@
 void firstOption (Gpio* gpio1);
 void secondOption (Gpio* gpio1);
 void thirdOption (Gpio* gpio, int pin);
+void forthOption (Gpio* gpio2);
 
 int main(int argc, char const *argv[])
 {
@@ -42,6 +43,10 @@ int main(int argc, char const *argv[])
     {
         thirdOption(gpio1, atoi(argv[2]));
     }
+    if (atoi(argv[1]) == 4)
+    {
+        forthOption(gpio2);
+    }
 
     return 0;
 }
@@ -55,7 +60,8 @@ void firstOption (Gpio* gpio1)
     int i = 0;
     while (i < TIMES)
     {
-        if (!gpio1->readDataIn(17)) {
+        if (!gpio1->readDataIn(17)) //P9_23
+        {
             gettimeofday(&time0, NULL);
             vector0[i] = time0;
             while (!gpio1->readDataIn(17)) usleep(1);
@@ -112,5 +118,18 @@ void thirdOption (Gpio* gpio, int pin)
         sleep(1);
     }
 }
+
+void forthOption (Gpio* gpio2)
+{
+    gpio2->setOE(1 << 2);  //P8_07
+    while (1)
+    {
+        gpio2->setDataOut(1 << 2);
+        usleep(100000);
+        gpio2->clearDataOut(1 << 2);
+        usleep(100000);
+    }
+}
+
 
 
