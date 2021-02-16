@@ -2,6 +2,7 @@
 
 void firstOption (Gpio* gpio1);
 void secondOption (Gpio* gpio1);
+void thirdOption (Gpio* gpio, int pin);
 
 int main(int argc, char const *argv[])
 {
@@ -11,8 +12,8 @@ int main(int argc, char const *argv[])
     }
 
     Gpio* gpio1 = new Gpio(GPIO1_OFFSET);
-    //Gpio* gpio2 = new Gpio(GPIO2_OFFSET);
-    //Gpio* gpio3 = new Gpio(GPIO3_OFFSET);
+    Gpio* gpio2 = new Gpio(GPIO2_OFFSET);
+    Gpio* gpio3 = new Gpio(GPIO3_OFFSET);
 
     cout << "[M_gpio] Gpios created" << endl;
 
@@ -22,24 +23,33 @@ int main(int argc, char const *argv[])
         Pic h 49                    gpio_1 - 17
         Pic E 65                    gpio_2 - 1
         M In1 86-89                 gpio_2 - 22-25
-        M In2 120-123               gpio_3 - 24-27
+        M In2 110-113               gpio_3 - 14-17
         M A1  50                    gpio_1 - 18
         M A2  51                    gpio_1 - 19
         M B1  60                    gpio_1 - 28
         M B2  61                    gpio_1 - 29  
     */
 
-    gpio1->setOE(0b00000000000000000000000000000000);
+    if (atoi(argv[1]) == 1)
+    {
+        firstOption(gpio1);
+    }
+    if (atoi(argv[1]) == 2)
+    {
+        secondOption(gpio1);
+    }
+    if (atoi(argv[1]) == 3)
+    {
+        thirdOption(gpio1, atoi(argv[2]));
+    }
 
-    //firstOption(gpio1);
-    secondOption(gpio1);
-    
-    
     return 0;
 }
 
 void firstOption (Gpio* gpio1)
 {
+    gpio1->setOE(0b00000000000000000000000000000000);
+
     struct timeval vector0[10], vector1[10];
     struct timeval time0, time1;
     int i = 0;
@@ -48,10 +58,11 @@ void firstOption (Gpio* gpio1)
         if (!gpio1->readDataIn(17)) {
             gettimeofday(&time0, NULL);
             vector0[i] = time0;
-            while (gpio1->readDataIn(17)) usleep(1);
+            while (!gpio1->readDataIn(17)) usleep(1);
             gettimeofday(&time1, NULL);
             vector1[i] = time1;
             i++;
+            cout << "."; //#############################
         }
     }
 
@@ -80,11 +91,25 @@ void firstOption (Gpio* gpio1)
 
 void secondOption (Gpio* gpio1)
 {
+    gpio1->setOE(0b00000000000000000000000000000000);
+
     while (1)
     {
         cout << "DataIn of GPIO_1 17: " << gpio1->readDataIn(17) << endl;
         usleep (1000);
         system("clear");
+    }
+}
+
+void thirdOption (Gpio* gpio, int pin)
+{
+    gpio->setOE(1 << pin);
+    while (1)
+    {
+        gpio->setDataOut(1 << pin);
+        sleep(1);
+        gpio->clearDataOut(1 << pin);
+        sleep(1);
     }
 }
 

@@ -16,7 +16,7 @@ void mainReceiver (CommandsQueue* cq)
     
     Command comTmp2;
     comTmp2.electrode1 = 0;
-    comTmp2.offset = 3;
+    comTmp2.offset = 1;
     comTmp2.qtyCycles = 64;
     comTmp2.qtyElectrodes = 32;
     comTmp2.durationCycle = 100000;

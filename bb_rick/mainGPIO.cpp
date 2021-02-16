@@ -19,7 +19,7 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
         Pic h 49                    gpio_1 - 17
         Pic E 65                    gpio_2 - 1
         M In1 86-89                 gpio_2 - 22-25
-        M In2 120-123               gpio_3 - 24-27
+        M In2 110-113               gpio_3 - 14-17
         M A1  50                    gpio_1 - 18
         M A2  51                    gpio_1 - 19
         M B1  60                    gpio_1 - 28
@@ -57,7 +57,7 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
 
         // Sets values of In1 and In2
         gpio2->setDataOut((*tmpCycle).electrode1 % 16 << 22);  //M In1
-        gpio3->setDataOut(((*tmpCycle).electrode1 + (*tmpCycle).offset) % (*tmpCycle).qtyElectrodes % 16 << 24); //M In2
+        gpio3->setDataOut(((*tmpCycle).electrode1 + (*tmpCycle).offset) % (*tmpCycle).qtyElectrodes % 16 << 14); //M In2
 
         // Digital operation
         gpio1->setDataOut((*tmpCycle).electrode1 << 12);   //pic D
