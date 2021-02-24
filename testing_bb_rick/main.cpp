@@ -33,18 +33,22 @@ int main(int argc, char const *argv[])
 
     if (atoi(argv[1]) == 1)
     {
+        cout << "[Option] Starting FIRST option..." << endl;
         firstOption(gpio1);
     }
     if (atoi(argv[1]) == 2)
     {
+        cout << "[Option] Starting SECOND option..." << endl;
         secondOption(gpio1);
     }
     if (atoi(argv[1]) == 3)
     {
+        cout << "[Option] Starting THIRD option..." << endl;
         thirdOption(gpio1, atoi(argv[2]));
     }
     if (atoi(argv[1]) == 4)
     {
+        cout << "[Option] Starting FORTH option..." << endl;
         forthOption(gpio2);
     }
 
@@ -60,15 +64,18 @@ void firstOption (Gpio* gpio1)
     int i = 0;
     while (i < TIMES)
     {
-        if (!gpio1->readDataIn(17)) //P9_23
+        if (!gpio1->readDataIn(17)) //P9_23 // thats to read A1 OR A2
         {
             gettimeofday(&time0, NULL);
             vector0[i] = time0;
-            while (!gpio1->readDataIn(17)) usleep(1);
+            while (!gpio1->readDataIn(17)) usleep(10);
             gettimeofday(&time1, NULL);
             vector1[i] = time1;
             i++;
-            cout << "."; //#############################
+        }
+        else
+        {
+            usleep(10);
         }
     }
 
