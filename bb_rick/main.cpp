@@ -18,6 +18,9 @@ int main(int argc, char const *argv[])
     mutex mu;
     unique_lock<mutex> locker1(mu);
 
+    //sleep(2);            //#####################
+    //Gpio* gpio1 = new Gpio(GPIO1_OFFSET); //#########################
+
     cout << "[main] Main OK" << endl;
     while (1)
     {
@@ -33,18 +36,21 @@ int main(int argc, char const *argv[])
         tmpCycle.electrode1 = comm.electrode1;
         tmpCycle.offset = comm.offset;
         tmpCycle.qtyElectrodes = comm.qtyElectrodes;
-        noMoreCycles = false;
+        noMoreCycles = true;
 
         //doing cycles at the defined time
         this_thread::sleep_for(chrono::microseconds(cq->processNext()));
         cout << "[timer] Lets go (" << tmpCycle.electrode1 << " + " << tmpCycle.offset << ") * " << tmpCycle.qtyElectrodes << endl;  //############################
         for (int i = 0; i < comm.qtyCycles; i++)
         {
+            noMoreCycles = false;  //************
             condVar2.notify_one();
+            //gpio1->setDataOut(1 << 17);//###########################
             this_thread::sleep_for(chrono::microseconds(comm.durationCycle));
-            tmpCycle.electrode1 = (tmpCycle.electrode1 + 1) % comm.qtyElectrodes;
-        }
-        noMoreCycles = true;  
+            //usleep(comm.durationCycle);
+            //gpio1->clearDataOut(1 << 17);//########################
+            tmpCycle.electrode1 = (tmpCycle.electrode1 + 1) % comm.qtyElectrodes; 
+        }  
     }
 
     //first.join();                // pauses until first finishes

@@ -1,9 +1,16 @@
 #include "header.h"
 
+//mesure duration and interval in 1_17
 void firstOption (Gpio* gpio1);
+
+//gpio1->readDataIn(17)
 void secondOption (Gpio* gpio1);
+
+//blink gpio_pin t=2seg
 void thirdOption (Gpio* gpio, int pin);
-void forthOption (Gpio* gpio2);
+
+//blink P8_07t=200ms
+void forthOption (Gpio* gpio1);
 
 int main(int argc, char const *argv[])
 {
@@ -49,7 +56,7 @@ int main(int argc, char const *argv[])
     if (atoi(argv[1]) == 4)
     {
         cout << "[Option] Starting FORTH option..." << endl;
-        forthOption(gpio2);
+        forthOption(gpio1);
     }
 
     return 0;
@@ -126,14 +133,24 @@ void thirdOption (Gpio* gpio, int pin)
     }
 }
 
-void forthOption (Gpio* gpio2)
+void forthOption (Gpio* gpio1)
 {
+    /*
     gpio2->setOE(1 << 2);  //P8_07
     while (1)
     {
         gpio2->setDataOut(1 << 2);
         usleep(100000);
         gpio2->clearDataOut(1 << 2);
+        usleep(100000);
+    }*/
+
+    gpio1->setOE(1 << 12);  //P8_12
+    while (1)
+    {
+        gpio1->setDataOut(1 << 12);
+        usleep(100000);
+        gpio1->clearDataOut(1 << 12);
         usleep(100000);
     }
 }

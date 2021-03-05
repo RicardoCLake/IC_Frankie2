@@ -1,6 +1,6 @@
 #define PIN 7
 #define VALUE HIGH
-#define TIMES 10 
+#define TIMES 50 
 
 unsigned long vector[TIMES] = {0};
 
@@ -26,7 +26,7 @@ void loop ()
     }
 
     //getting min
-    unsigned long minimum = 0;
+    unsigned long minimum = -1;
     for (int i = 0; i < TIMES; i++)
     {
         minimum = min(vector[i], minimum);

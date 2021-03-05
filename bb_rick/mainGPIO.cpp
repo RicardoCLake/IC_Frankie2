@@ -43,12 +43,16 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
         {
             (*condVar2).wait(locker2);
         }
+        //(*condVar2).wait(locker2); //#######################
+        *noMoreCycles = true; //************
+        
         //cout << "[cycle] +" << endl; //#########################
+        
         // Cuts current (a1, a2, b1, b2)
         gpio1->clearDataOut(0b00110000000011000000000000000000);   
 
         //Turns on pic h          //????????????????????? is it really necessary?*
-        gpio1->setDataOut(1 << 17);                     
+        //gpio1->setDataOut(1 << 17);     **********************************                 
 
         // Clears all data pins
         gpio1->clearDataOut(0b00000000000000011111000000000000);
@@ -62,7 +66,7 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
         // Digital operation
         gpio1->setDataOut((*tmpCycle).electrode1 << 12);   //pic D
         gpio2->setDataOut((*tmpCycle).offset << 2);        //pic P
-        gpio1->clearDataOut(1 << 17);                   //turns off pic h   //????????????????????? *(the same)
+        //gpio1->clearDataOut(1 << 17);                   //turns off pic h   //????????????????????? *(the same)
         
         // Turns on electrode1
         if ((*tmpCycle).electrode1 / 16)                             
