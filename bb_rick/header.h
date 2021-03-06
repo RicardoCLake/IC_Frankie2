@@ -8,6 +8,8 @@
 #include <thread> 
 #include <chrono>
 #include <stdexcept>
+#include <assert.h>
+#include <memory.h>
 #include "CommandsQueue.h"
 #include "Gpio.h"
 
