@@ -27,7 +27,7 @@ void mainReceiver (CommandsQueue* cq)
     {
         this_thread::sleep_for(chrono::seconds(3));
 
-    //    cq->addCommand(comTmp1);
+        //cq->addCommand(comTmp1);
         cq->addCommand(comTmp2);
         cout << "[M_receiver] Commands Added" << endl;
     }

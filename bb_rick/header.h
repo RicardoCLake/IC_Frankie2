@@ -24,6 +24,18 @@ struct Cycle
     long qtyCycles;
 };
 using namespace std;
+/*
+        Pic D 44-48     Electrode1  gpio_1 - 12-16
+        Pic P 66-69     Offset      gpio_2 - 02-05
+        Pic h 49                    gpio_1 - 17
+        Pic E 65                    gpio_2 - 1
+        M In1 86-89                 gpio_2 - 22-25
+        M In2 110-113               gpio_3 - 14-17
+        M A1  50                    gpio_1 - 18
+        M A2  51                    gpio_1 - 19
+        M B1  60                    gpio_1 - 28
+        M B2  61                    gpio_1 - 29  
+*/
 
 //*******************************  PROTOTYPES  ********************************************
 void mainReceiver (CommandsQueue* cq);
