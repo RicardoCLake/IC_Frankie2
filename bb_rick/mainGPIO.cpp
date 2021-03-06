@@ -47,6 +47,8 @@ extern Cycle tmpCycle;
 
 void changeGPIO(int sig)
 {
+    if (tmpCycle.qtyCycles < 0)
+        return;
     //(*condVar2).wait(locker2); //#######################
     
     //cout << "[cycle] +" << endl; //#########################
@@ -95,5 +97,7 @@ void changeGPIO(int sig)
         gpio1->clearDataOut(1 << 29);
     }
     tmpCycle.electrode1 = (tmpCycle.electrode1 + 1) % tmpCycle.qtyElectrodes;
+    tmpCycle.qtyCycles--;
+        
 }
 

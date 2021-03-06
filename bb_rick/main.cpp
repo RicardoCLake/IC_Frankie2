@@ -69,15 +69,24 @@ int main(int argc, char const *argv[])
         timer_value.it_interval.tv_sec = 0;
         timer_value.it_interval.tv_nsec = comm.durationCycle*1000;
 
-        long expiration = comm.qtyCycles * comm.durationCycle;
-        
         /* setting timer initial expiration values*/
-        timer_value.it_value.tv_sec = expiration / 1000000000;;
-        timer_value.it_value.tv_nsec = expiration % 1000000000;
+        timer_value.it_value.tv_sec = 0;
+        timer_value.it_value.tv_nsec = comm.durationCycle*1000;
+
+        tmpCycle.qtyCycles = comm.qtyCycles;
 
         /* Create timer */
         ret = timer_settime(timer_id, 0, &timer_value, NULL);
         assert(ret == 0);
+
+        while (tmpCycle.qtyCycles > 0)
+            sleep(1);
+
+        /* Reset timer */
+        memset(&timer_value, 0, sizeof(struct itimerspec));
+        ret = timer_settime(timer_id, 0, &timer_value, NULL);
+        assert(ret == 0);
+        
         
     }
 
