@@ -15,7 +15,7 @@ CC=g++
  
 # Flags for compiler
 CC_FLAGS=-Wall \
-         -pthread -lrt
+         -pthread
  
 # Command used at clean target
 RM = rm -rf

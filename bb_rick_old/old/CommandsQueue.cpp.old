@@ -1,0 +1,56 @@
+#include "CommandsQueue.h"
+
+CommandsQueue::CommandsQueue()
+{
+    queue = new list<Command>;
+    numberOfCommands = 0;
+}
+
+CommandsQueue::~CommandsQueue()
+{
+    delete queue;
+}
+
+Command CommandsQueue::getNext()
+{ 
+    return queue->front();
+}
+
+void CommandsQueue::processNext()
+{    
+    //dequeue
+    queue->pop_front();
+    numberOfCommands--;
+    if (numberOfCommands == 0)
+    {
+        return;
+    } 
+
+    //create delay with the next
+    struct itimerval delay;
+    struct timeval end = queue->front().time;
+    struct timeval now;
+    __suseconds_t usecTmp;
+    delay.it_interval.tv_sec = delay.it_interval.tv_usec = 0;
+    gettimeofday(&now, NULL);
+    usecTmp = (end.tv_sec-now.tv_sec)*1000000 + end.tv_usec - now.tv_usec;
+    delay.it_value.tv_usec = usecTmp % 1000000;
+    delay.it_value.tv_sec = usecTmp / 1000000;  //This count makes un delay around 2 usec 
+    
+    // Send SIGALRM after delay
+    setitimer(ITIMER_REAL, &delay, NULL); //This process have a duration around 10 usec  
+
+    cout << "Processado o proximo da fila (com eletrodo " << queue->front().eletrodo1 << ")" << endl; //#########################
+}
+
+void CommandsQueue::addCommand(Command a)
+{
+    queue->push_back(a); 
+    numberOfCommands++;
+    cout << "Adicionado o eletrodo " << a.eletrodo1 << endl; //#######################
+}
+
+int CommandsQueue::getNumberOfCommands()
+{
+    return numberOfCommands;
+}

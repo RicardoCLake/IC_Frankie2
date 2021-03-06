@@ -1,15 +1,19 @@
 #include "header.h"
 
-void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles)
+Gpio* gpio1;
+Gpio* gpio2;
+Gpio* gpio3;
+
+void initGPIO()
 {
     if (!Gpio::gpioMap())
     {
         return;
     }
 
-    Gpio* gpio1 = new Gpio(GPIO1_OFFSET);
-    Gpio* gpio2 = new Gpio(GPIO2_OFFSET);
-    Gpio* gpio3 = new Gpio(GPIO3_OFFSET);
+    gpio1 = new Gpio(GPIO1_OFFSET);
+    gpio2 = new Gpio(GPIO2_OFFSET);
+    gpio3 = new Gpio(GPIO3_OFFSET);
 
     cout << "[M_gpio] Gpios created" << endl;
 
@@ -36,56 +40,60 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
     unique_lock<mutex> locker2(mut);
 
     cout << "[M_gpio] Starting Cycles..." << endl;
-    while (1)
-    {
-        // Waits signal to execute
-        while (*noMoreCycles)
-        {
-            (*condVar2).wait(locker2);
-        }
-        //(*condVar2).wait(locker2); //#######################
-        *noMoreCycles = true; //************
-        
-        //cout << "[cycle] +" << endl; //#########################
-        
-        // Cuts current (a1, a2, b1, b2)
-        gpio1->clearDataOut(0b00110000000011000000000000000000);   
-
-        //Turns on pic h          //????????????????????? is it really necessary?*
-        //gpio1->setDataOut(1 << 17);     **********************************                 
-
-        // Clears all data pins
-        gpio1->clearDataOut(0b00000000000000011111000000000000);
-        gpio2->clearDataOut(0b00000011110000000000000000111100);
-        gpio3->clearDataOut(0b00001111000000000000000000000000);
-
-        // Sets values of In1 and In2
-        gpio2->setDataOut((*tmpCycle).electrode1 % 16 << 22);  //M In1
-        gpio3->setDataOut(((*tmpCycle).electrode1 + (*tmpCycle).offset) % (*tmpCycle).qtyElectrodes % 16 << 14); //M In2
-
-        // Digital operation
-        gpio1->setDataOut((*tmpCycle).electrode1 << 12);   //pic D
-        gpio2->setDataOut((*tmpCycle).offset << 2);        //pic P
-        //gpio1->clearDataOut(1 << 17);                   //turns off pic h   //????????????????????? *(the same)
-        
-        // Turns on electrode1
-        if ((*tmpCycle).electrode1 / 16)                             
-        {   
-            gpio1->setDataOut(1 << 28);  //B1
-        }
-        else
-        {
-            gpio1->setDataOut(1 << 18);  //A1
-        }
-
-        // Turns on electrode2
-        if ((((*tmpCycle).electrode1 + (*tmpCycle).offset) % (*tmpCycle).qtyElectrodes) / 16)       
-        {
-            gpio1->setDataOut(1 << 29);  //B2
-        }
-        else
-        {
-            gpio1->setDataOut(1 << 19);  //A2
-        }
-    }
 }
+        
+        
+extern Cycle tmpCycle;
+
+void changeGPIO(int sig)
+{
+    //(*condVar2).wait(locker2); //#######################
+    
+    //cout << "[cycle] +" << endl; //#########################
+    
+    // Cuts current (a1, a2, b1, b2)
+    //gpio1->clearDataOut(0b00110000000011000000000000000000);   
+
+    //Turns on pic h          //????????????????????? is it really necessary?*
+    //gpio1->setDataOut(1 << 17);     **********************************                 
+
+    // Clears all data pins
+    gpio1->clearDataOut(0b00000000000000011111000000000000);
+    gpio2->clearDataOut(0b00000011110000000000000000111100);
+    gpio3->clearDataOut(0b00001111000000000000000000000000);
+
+    // Sets values of In1 and In2
+    gpio2->setDataOut(tmpCycle.electrode1 % 16 << 22);  //M In1
+    gpio3->setDataOut((tmpCycle.electrode1 + tmpCycle.offset) % tmpCycle.qtyElectrodes % 16 << 14); //M In2
+
+    // Digital operation
+    gpio1->setDataOut(tmpCycle.electrode1 << 12);   //pic D
+    gpio2->setDataOut(tmpCycle.offset << 2);        //pic P
+    //gpio1->clearDataOut(1 << 17);                   //turns off pic h   //????????????????????? *(the same)
+    
+    // Turns on electrode1
+    if (tmpCycle.electrode1 / 16)                             
+    {   
+        gpio1->setDataOut(1 << 28);  //B1
+        gpio1->clearDataOut(1 << 18);
+    }
+    else
+    {
+        gpio1->setDataOut(1 << 18);  //A1
+        gpio1->clearDataOut(1 << 28);
+    }
+
+    // Turns on electrode2
+    if (((tmpCycle.electrode1 + tmpCycle.offset) % tmpCycle.qtyElectrodes) / 16)       
+    {
+        gpio1->setDataOut(1 << 29);  //B2
+        gpio1->clearDataOut(1 << 19);
+    }
+    else
+    {
+        gpio1->setDataOut(1 << 19);  //A2
+        gpio1->clearDataOut(1 << 29);
+    }
+    tmpCycle.electrode1 = (tmpCycle.electrode1 + 1) % tmpCycle.qtyElectrodes;
+}
+

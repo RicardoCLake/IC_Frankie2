@@ -8,8 +8,6 @@
 #include <thread> 
 #include <chrono>
 #include <stdexcept>
-#include <assert.h>
-#include <memory.h>
 #include "CommandsQueue.h"
 #include "Gpio.h"
 
@@ -26,7 +24,7 @@ using namespace std;
 
 //*******************************  PROTOTYPES  ********************************************
 void mainReceiver (CommandsQueue* cq);
-//void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles);
+void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles);
 //void mainPrinter ();
 
 #endif //_HEADER_H

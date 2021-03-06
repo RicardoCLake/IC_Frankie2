@@ -1,0 +1,11 @@
+tentar entender e verificar possiveis causas do erro inicial
+
+buscar solução alternativa de timer
+
+medir o que esta causando o meu delay
+
+implemntar com gpio (versao teste)
+
+medir e mitigar o meu delay
+
+implementar gpio versao final
