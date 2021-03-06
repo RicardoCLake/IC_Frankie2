@@ -47,15 +47,11 @@ extern Cycle tmpCycle;
 
 void changeGPIO(int sig)
 {
-    //(*condVar2).wait(locker2); //#######################
-    
-    //cout << "[cycle] +" << endl; //#########################
-    
-    // Cuts current (a1, a2, b1, b2)
+        // Cuts current (a1, a2, b1, b2)
     //gpio1->clearDataOut(0b00110000000011000000000000000000);   
 
     //Turns on pic h          //????????????????????? is it really necessary?*
-    //gpio1->setDataOut(1 << 17);     **********************************                 
+    //gpio1->setDataOut(1 << 17);     //**********************************                 
 
     // Clears all data pins
     gpio1->clearDataOut(0b00000000000000011111000000000000);
