@@ -1,9 +1,5 @@
 #include "header.h"
 
-Gpio* gpio1;
-Gpio* gpio2;
-Gpio* gpio3;
-
 void initGPIO()
 {
     // Initial preparation for create gpio*
@@ -25,9 +21,6 @@ void initGPIO()
 
     gpio2->setDataOut(1 << 1); // PIC enable
 }
-        
-        
-extern Cycle tmpCycle;
 
 void changeGPIO(int sig)
 {
@@ -35,7 +28,7 @@ void changeGPIO(int sig)
         return;
     
     // Cuts current (a1, a2, b1, b2)
-    //gpio1->clearDataOut(0b00110000000011000000000000000000);   
+    gpio1->clearDataOut(0b00110000000011000000000000000000);   
 
     // Turns on pic h               
     //gpio1->setDataOut(1 << 17);                    
@@ -77,6 +70,8 @@ void changeGPIO(int sig)
         gpio1->setDataOut(1 << 19);  //A2
         gpio1->clearDataOut(1 << 29);
     }
+
+    // Final iterations
     tmpCycle.electrode1 = (tmpCycle.electrode1 + 1) % tmpCycle.qtyElectrodes;
     tmpCycle.qtyCycles--;
         

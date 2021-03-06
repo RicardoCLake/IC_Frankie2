@@ -39,6 +39,14 @@ using namespace std;
 
 //*******************************  PROTOTYPES  ********************************************
 void mainReceiver (CommandsQueue* cq);
+void initGPIO();
+void changeGPIO(int sig);
 //void mainPrinter ();
+
+//***************************  GLOBAL DECLARATIONS :( ************************************
+Cycle tmpCycle;
+Gpio* gpio1;
+Gpio* gpio2;
+Gpio* gpio3;
 
 #endif //_HEADER_H
