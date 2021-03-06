@@ -21,12 +21,12 @@ struct Cycle
     int electrode1;
     int offset;
     int qtyElectrodes;
+    long qtyCycles;
 };
 using namespace std;
 
 //*******************************  PROTOTYPES  ********************************************
 void mainReceiver (CommandsQueue* cq);
-//void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles);
 //void mainPrinter ();
 
 #endif //_HEADER_H
