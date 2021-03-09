@@ -1,6 +1,8 @@
+#define MAIN_CPP
 #include "header.h"
 //#include "mainReceiver.cpp"
 //#include "mainGPIO.cpp"
+
 
 int main(int argc, char const *argv[])
 {
@@ -11,6 +13,7 @@ int main(int argc, char const *argv[])
     // Declarations for timer
     struct sigaction action;
     timer_t timerId;
+    clock_t clockId;
     struct sigevent clockSignalEvent;
     struct itimerspec timerValue;
     int returnValue;
@@ -22,16 +25,17 @@ int main(int argc, char const *argv[])
     assert(returnValue == 0);
     
     // Creating process interval timer 
+    clockId = CLOCK_MONOTONIC;
     memset(&clockSignalEvent, 0, sizeof( struct sigevent));
     clockSignalEvent.sigev_notify = SIGEV_SIGNAL;
     clockSignalEvent.sigev_signo = SIGUSR1;
     clockSignalEvent.sigev_notify_attributes = NULL;
-    returnValue = timer_create(CLOCK_MONOTONIC, &clockSignalEvent, &timerId);
+    returnValue = timer_create(clockId, &clockSignalEvent, &timerId);
     assert(returnValue == 0);
 
     // Starting receiver thread
     cout << "[M_main] Starting Receiver Thread..." << endl;
-    thread first (mainReceiver, cq); 
+    thread first (mainReceiver, cq, atoi(argv[1])); 
 
     initGPIO();
 
@@ -49,28 +53,29 @@ int main(int argc, char const *argv[])
         }
 
         cout << "[timer] Next command..." << endl;  //############################
+        
+        this_thread::sleep_for(chrono::microseconds(cq->processNext())); //**********************
+
         // Initialising
-        Command comm = cq->getNext();
+        Command comm = cq->getFront();
         tmpCycle.electrode1 = comm.electrode1;
         tmpCycle.offset = comm.offset;
         tmpCycle.qtyElectrodes = comm.qtyElectrodes;
         tmpCycle.qtyCycles = comm.qtyCycles;
-        
-        cout << "[timer] Lets go (" << tmpCycle.electrode1 << " + " << tmpCycle.offset << ") * " << tmpCycle.qtyElectrodes << endl;  //############################
 
         // Setting timer interval values 
         memset(&timerValue, 0, sizeof(struct itimerspec));
-        //timerValue.it_interval.tv_sec = 0;
+        timerValue.it_interval.tv_sec = 0;
         timerValue.it_interval.tv_nsec = comm.durationCycle*1000;
-        
 
         // Setting timer initial delay
-        //timerValue.it_value.tv_sec = 0;
-        timerValue.it_value.tv_nsec = cq->processNext()*1000;
+        timerValue.it_value.tv_sec = 0;
+        timerValue.it_value.tv_nsec = comm.durationCycle*1000; //*****************************
 
         // Creating timer 
         returnValue = timer_settime(timerId, 0, &timerValue, NULL);
         assert(returnValue == 0);
+        cout << "[timer] Lets go (" << tmpCycle.electrode1 << " + " << tmpCycle.offset << ") * " << tmpCycle.qtyElectrodes << endl;  //############################
 
         while (tmpCycle.qtyCycles > 0)
         {

@@ -5,6 +5,7 @@ CommandsQueue::CommandsQueue(condition_variable* condVarPointer)
     queue = new list<Command>;
     numberOfCommands = 0;
     this->condVarPointer = condVarPointer;
+    this->isVirgin = true;
 }
 
 CommandsQueue::~CommandsQueue()
@@ -12,18 +13,28 @@ CommandsQueue::~CommandsQueue()
     delete queue;
 }
 
-Command CommandsQueue::getNext()
+Command CommandsQueue::getFront()
 { 
     return queue->front();     //???????????????????????? precisa de locker??
 }
 
 int CommandsQueue::processNext()
 {    
-    //dequeue
     unique_lock<mutex> locker2(mtx);
     {
-        queue->pop_front();
-        numberOfCommands--;
+        if(isVirgin)
+        {
+            if (numberOfCommands != 0)
+            {
+                isVirgin = false;
+            }
+        } 
+        else
+        {
+            //dequeue
+            queue->pop_front();
+            numberOfCommands--;
+        }
         if (numberOfCommands == 0)
         {   
             locker2.unlock();
@@ -31,7 +42,7 @@ int CommandsQueue::processNext()
         } 
     }
     locker2.unlock();
-
+    
     //create delay with the next
     struct timeval end = queue->front().time;          //??????????????????????? precisa de locker?
     struct timeval now;

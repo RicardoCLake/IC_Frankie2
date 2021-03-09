@@ -3,7 +3,7 @@
 
 //********************************  INCLUDES  ********************************************
 #include <iostream>
-//#include <time.h>
+#include <time.h>
 #include <unistd.h>
 #include <thread> 
 #include <chrono>
@@ -38,15 +38,22 @@ using namespace std;
 */
 
 //*******************************  PROTOTYPES  ********************************************
-void mainReceiver (CommandsQueue* cq);
+void mainReceiver (CommandsQueue* cq, int duration);
 void initGPIO();
 void changeGPIO(int sig);
 //void mainPrinter ();
 
 //***************************  GLOBAL DECLARATIONS :( ************************************
-Cycle tmpCycle;
-Gpio* gpio1;
-Gpio* gpio2;
-Gpio* gpio3;
+    #ifdef MAIN_CPP
+    Cycle tmpCycle;
+    Gpio* gpio1;
+    Gpio* gpio2;
+    Gpio* gpio3;
+    #else
+    extern Cycle tmpCycle;
+    extern Gpio* gpio1;
+    extern Gpio* gpio2;
+    extern Gpio* gpio3;
+    #endif
 
 #endif //_HEADER_H

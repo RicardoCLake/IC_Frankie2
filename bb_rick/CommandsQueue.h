@@ -28,6 +28,7 @@ class CommandsQueue
     private:
         list<Command> *queue;
         int numberOfCommands;
+        bool isVirgin;
         
         mutex mtx;
         condition_variable* condVarPointer;
@@ -35,7 +36,7 @@ class CommandsQueue
     public:
         CommandsQueue(condition_variable* condVarPointer);
         ~CommandsQueue();
-        Command getNext();
+        Command getFront();
         int processNext();
         void addCommand(Command a);
         int getNumberOfCommands();
