@@ -1,0 +1,123 @@
+#include <iostream>
+#include <time.h>
+#include <unistd.h>
+
+#include "CommandsQueue.h"
+#include "Gpio.h"
+#include "Alarmer.h"
+
+#define GPIO1_BITS 0b00000000000011111111000011111111
+#define GPIO2_BITS 0b00000000000000011111111111111110
+
+using namespace std;
+
+//Sadly necessary this global declaration...
+CommandsQueue *cq;
+timeval time1;  //######################
+timeval time2;  //######################
+
+void action (int trash);
+void procedure (int eletrodo1);
+
+int main(int argc, char const *argv[])
+{
+    cq = new CommandsQueue();
+    Alarmer* alarmer = new Alarmer(action);
+    alarmer->init();
+    if (!Gpio::gpioMap())
+    {
+        return 1;
+    }
+    
+    //Just testing creating commands
+    struct timeval time0;
+    gettimeofday(&time0, NULL);
+
+    cout << "Horario: "<< time0.tv_sec << "." << time0.tv_usec << endl;
+
+    Command comTmp1;
+    comTmp1.eletrodo1 = 1;
+    time0.tv_sec += 4;
+    comTmp1.time = time0;
+
+    Command comTmp2;
+    comTmp2.eletrodo1 = 2;
+    time0.tv_sec += 4;
+    comTmp2.time = time0;
+    
+    Command comTmp3;
+    comTmp3.eletrodo1 = 3;
+    time0.tv_sec += 4;
+    comTmp3.time = time0;
+
+    cq->addCommand(comTmp1);
+    cq->addCommand(comTmp2);
+    cq->addCommand(comTmp3);
+
+    for (int i = 0; i < 500; i++)
+    {
+        comTmp1.eletrodo1 = 1;
+        time0.tv_usec += 100;
+        comTmp1.time = time0;
+
+        comTmp2.eletrodo1 = 2;
+        time0.tv_usec += 100;
+        comTmp2.time = time0;
+        
+        comTmp3.eletrodo1 = 3;
+        time0.tv_usec += 100;
+        comTmp3.time = time0;
+
+        cq->addCommand(comTmp1);
+        cq->addCommand(comTmp2);
+        cq->addCommand(comTmp3);
+    }
+    
+    action (0);
+
+    while(1)
+    {
+        getchar();
+    };
+
+    return 0;
+}
+
+void action(int trash) 
+{   
+    gettimeofday(&time1, NULL);   //######################
+    Command comm = cq->getNext();  //######################
+    procedure(comm.eletrodo1);
+    cq->processNext();
+    gettimeofday(&time2, NULL);   //######################
+    //cout << "\tHorario inicial: "<< time1.tv_sec << "." << time1.tv_usec << endl;   //######################
+    //out << "\tHorario final: "<< time1.tv_sec << "." << time1.tv_usec << endl;   //######################
+    //cout << "\tHorario marcado: "<< comm.time.tv_sec << "." << comm.time.tv_usec << endl; //################
+    cout << "\tErro inicial: " << 1000000*(comm.time.tv_sec - time1.tv_sec) + comm.time.tv_usec - time1.tv_usec << endl; //######################
+    cout << "\tDelay meu: " << 1000000*(time2.tv_sec - time1.tv_sec) + time2.tv_usec - time1.tv_usec << endl; //######################
+}
+
+/*void action(int trash) 
+{   
+    procedure(cq->getNext().eletrodo1);
+    cq->processNext();
+}*/
+
+/*void procedure (int eletrodo1)
+{
+    cout << "Ativado o eletrodo " << eletrodo1 << endl;
+}*/
+
+void procedure (int eletrodo1)
+{   
+    //cout << "Procedure para eletrodo " << eletrodo1 << endl;
+    Gpio* gp = new Gpio(GPIO3_OFFSET);
+    //cout << "Criado o GPIO3" << endl;   //###########################
+    gp->setOE(0b00000000000000111100000000000000);
+    //cout << "Setadas as entradas e saidas" << endl;      //#####################
+    gp->clearDataOut(0b00000000000000111100000000000000);
+    //cout << "Saídas apagadas" << endl;  //###########################
+    gp->setDataOut(1 << (13 + eletrodo1) );
+    //cout << "Botou para sair" << endl;   //####################
+    delete gp;
+}
