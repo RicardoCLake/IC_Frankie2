@@ -1,6 +1,6 @@
 #include "header.h"
 
-void mainReceiver (CommandsQueue* cq)
+void mainReceiver (CommandsQueue* cq, int duration)
 {
     struct timeval time0;
     gettimeofday(&time0, NULL);
@@ -19,7 +19,7 @@ void mainReceiver (CommandsQueue* cq)
     comTmp2.offset = 2;
     comTmp2.qtyCycles = 1000000;
     comTmp2.qtyElectrodes = 4;
-    comTmp2.durationCycle = 40;
+    comTmp2.durationCycle = duration;
     time0.tv_sec += 14;
     comTmp2.time = time0;
     

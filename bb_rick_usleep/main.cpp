@@ -1,6 +1,4 @@
 #include "header.h"
-//#include "mainReceiver.cpp"
-//#include "mainGPIO.cpp"
 
 int main(int argc, char const *argv[])
 {
@@ -11,7 +9,7 @@ int main(int argc, char const *argv[])
     
     cout << "[M_main] Starting Threads..." << endl;
     //starting threads
-    thread first (mainReceiver, cq);     
+    thread first (mainReceiver, cq, atoi(argv[1]));     
     thread second (mainGPIO, &tmpCycle, &condVar2, &noMoreCycles);
 
     //creating locker used to wait signal of condition_variable
@@ -43,7 +41,7 @@ int main(int argc, char const *argv[])
         cout << "[timer] Lets go (" << tmpCycle.electrode1 << " + " << tmpCycle.offset << ") * " << tmpCycle.qtyElectrodes << endl;  //############################
         for (int i = 0; i < comm.qtyCycles; i++)
         {
-            noMoreCycles = false;  //************
+            noMoreCycles = false;  
             condVar2.notify_one();
             //gpio1->setDataOut(1 << 17);//###########################
             this_thread::sleep_for(chrono::nanoseconds(comm.durationCycle*1000));

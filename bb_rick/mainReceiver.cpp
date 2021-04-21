@@ -34,7 +34,7 @@ void mainReceiver (CommandsQueue* cq, int duration)
         time0.tv_sec += 14;
         comTmp2.time = time0;
         cout << "[M_receiver] Commands Added" << endl;
-        this_thread::sleep_for(chrono::seconds(20));
+        this_thread::sleep_for(chrono::seconds(60));
     }
 
 }

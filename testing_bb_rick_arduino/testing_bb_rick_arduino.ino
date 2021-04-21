@@ -1,42 +1,26 @@
+#include "Statistic.h"
+
 #define PIN 7
 #define VALUE HIGH
-#define TIMES 50 
+#define TIMES 600 
 
-unsigned long vector[TIMES] = {0};
+unsigned int vector[TIMES] = {0};
+Statistic myStats;
 
 void setup ()
 {
     Serial.begin(9600);
-    pinMode(PIN, INPUT);   
+    pinMode(PIN, INPUT);
+    myStats.clear();   
 }
+
 void loop ()
 {
     //getting values
     for (int i = 0; i < TIMES; i++)
     {
         vector[i] = pulseIn(PIN, VALUE, 10000000);
-        //Serial.println(vector[i]); //############################
-    }
-
-    //getting max
-    unsigned long maximum = 0;
-    for (int i = 0; i < TIMES; i++)
-    {
-        maximum = max(vector[i], maximum);
-    }
-
-    //getting min
-    unsigned long minimum = -1;
-    for (int i = 0; i < TIMES; i++)
-    {
-        minimum = min(vector[i], minimum);
-    }
-
-    //getting sum
-    unsigned long sum = 0;
-    for (int i = 0; i < TIMES; i++)
-    {
-        sum += vector[i];
+        myStats.add(vector[i]);
     }
 
     //printing values
@@ -47,11 +31,15 @@ void loop ()
 
     Serial.println("");
     Serial.print("min = ");
-    Serial.println(minimum);
+    Serial.println(myStats.minimum());
     Serial.print("max = ");
-    Serial.println(maximum);
+    Serial.println(myStats.maximum());
     Serial.print("average = ");
-    Serial.println(sum/TIMES);
+    Serial.println(myStats.average());
+    Serial.print("stdev = ");
+    Serial.println(myStats.pop_stdev());
+    Serial.print("avrg stdev = ");
+    Serial.println(myStats.pop_stdev()/sqrt(TIMES));;
     Serial.println(""); 
      
 }

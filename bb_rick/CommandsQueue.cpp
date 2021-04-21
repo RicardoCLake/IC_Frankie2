@@ -15,7 +15,7 @@ CommandsQueue::~CommandsQueue()
 
 Command CommandsQueue::getFront()
 { 
-    return queue->front();     //???????????????????????? precisa de locker??
+    return queue->front();     
 }
 
 int CommandsQueue::processNext()
@@ -44,7 +44,7 @@ int CommandsQueue::processNext()
     locker2.unlock();
     
     //create delay with the next
-    struct timeval end = queue->front().time;          //??????????????????????? precisa de locker?
+    struct timeval end = queue->front().time;          
     struct timeval now;
     int udelay;
     gettimeofday(&now, NULL);

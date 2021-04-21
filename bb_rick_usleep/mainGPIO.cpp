@@ -44,7 +44,7 @@ void mainGPIO (Cycle* tmpCycle, condition_variable* condVar2, bool* noMoreCycles
             (*condVar2).wait(locker2);
         }
         //(*condVar2).wait(locker2); //#######################
-        *noMoreCycles = true; //************
+        *noMoreCycles = true; 
         
         //cout << "[cycle] +" << endl; //#########################
         

@@ -2,4 +2,4 @@ scp -r /home/rifi/Dropbox/IniciacaoCientifica/IC_Frankie2/ debian@beaglebone:/ho
 
 scp -r /home/rick/Dropbox/IniciacaoCientifica/IC_Frankie2/ debian@192.168.6.2:/home/debian/
 
-sudo nice -n -20 bin/bb_rick
+sudo nice -n -20 bin/bbRick 100
