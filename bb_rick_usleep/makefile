@@ -55,5 +55,5 @@ soft-clean:
 	@ $(RM) ./obj/*.o *~
 	@ rmdir obj
 
-.PHONY: all clean
+.PHONY: clean all
 

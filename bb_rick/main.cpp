@@ -1,8 +1,5 @@
 #define MAIN_CPP
 #include "header.h"
-//#include "mainReceiver.cpp"
-//#include "mainGPIO.cpp"
-
 
 int main(int argc, char const *argv[])
 {

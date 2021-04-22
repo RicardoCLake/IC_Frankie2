@@ -10,6 +10,7 @@
 #include <stdexcept>
 #include <assert.h>
 #include <memory.h>
+#include <signal.h>
 #include "CommandsQueue.h"
 #include "Gpio.h"
 
